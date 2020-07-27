@@ -13,7 +13,7 @@
 
  Date: 19/05/2020 00:21:05
 */
-
+use jeecg-boot;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

@@ -105,12 +105,12 @@
         </a-button>
       </a-form-item>
 
-      <div class="user-login-other">
-        <span>其他登陆方式</span>
-        <a @click="onThirdLogin('github')" title="github"><a-icon class="item-icon" type="github"></a-icon></a>
-        <a @click="onThirdLogin('wechat_enterprise')" title="企业微信"><a-icon class="item-icon" type="wechat"></a-icon></a>
-        <a @click="onThirdLogin('dingtalk')" title="钉钉"><a-icon class="item-icon" type="dingding"></a-icon></a>
-      </div>
+<!--      <div class="user-login-other">-->
+<!--        <span>其他登陆方式</span>-->
+<!--        <a @click="onThirdLogin('github')" title="github"><a-icon class="item-icon" type="github"></a-icon></a>-->
+<!--        <a @click="onThirdLogin('wechat_enterprise')" title="企业微信"><a-icon class="item-icon" type="wechat"></a-icon></a>-->
+<!--        <a @click="onThirdLogin('dingtalk')" title="钉钉"><a-icon class="item-icon" type="dingding"></a-icon></a>-->
+<!--      </div>-->
     </a-form>
 
     <two-step-captcha
