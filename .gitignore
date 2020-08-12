@@ -7,4 +7,7 @@
 **/logs
 
 ## front
-**/*.lock
+**/*.locki
+
+## mac
+.DS_Store
