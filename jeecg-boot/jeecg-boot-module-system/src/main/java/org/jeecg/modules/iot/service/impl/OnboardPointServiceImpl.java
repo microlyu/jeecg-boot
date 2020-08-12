@@ -1,8 +1,8 @@
 package org.jeecg.modules.iot.service.impl;
 
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.OnboardPoint;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.mapper.OnboardPointMapper;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.service.IOnboardPointService;
+import org.jeecg.modules.iot.entity.OnboardPoint;
+import org.jeecg.modules.iot.mapper.OnboardPointMapper;
+import org.jeecg.modules.iot.service.IOnboardPointService;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

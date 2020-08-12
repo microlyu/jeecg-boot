@@ -1,7 +1,7 @@
 package org.jeecg.modules.iot.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.DeviceType;
+import org.jeecg.modules.iot.entity.DeviceType;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

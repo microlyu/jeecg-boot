@@ -3,7 +3,7 @@ package org.jeecg.modules.iot.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.OnboardPoint;
+import org.jeecg.modules.iot.entity.OnboardPoint;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

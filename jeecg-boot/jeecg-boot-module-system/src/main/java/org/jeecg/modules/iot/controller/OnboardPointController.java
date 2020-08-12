@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.jeecg.common.api.vo.Result;
 import org.jeecg.common.system.query.QueryGenerator;
 import org.jeecg.common.util.oConvertUtils;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.OnboardPoint;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.service.IOnboardPointService;
+import org.jeecg.modules.iot.entity.OnboardPoint;
+import org.jeecg.modules.iot.service.IOnboardPointService;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;

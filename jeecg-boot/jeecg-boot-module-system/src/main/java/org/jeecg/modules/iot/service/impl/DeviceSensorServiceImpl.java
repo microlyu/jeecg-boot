@@ -1,8 +1,8 @@
 package org.jeecg.modules.iot.service.impl;
 
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.DeviceSensor;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.mapper.DeviceSensorMapper;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.service.IDeviceSensorService;
+import org.jeecg.modules.iot.entity.DeviceSensor;
+import org.jeecg.modules.iot.mapper.DeviceSensorMapper;
+import org.jeecg.modules.iot.service.IDeviceSensorService;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

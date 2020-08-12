@@ -1,8 +1,8 @@
 package org.jeecg.modules.iot.vo;
 
 import java.util.List;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.Device;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.DeviceSensor;
+import org.jeecg.modules.iot.entity.Device;
+import org.jeecg.modules.iot.entity.DeviceSensor;
 import lombok.Data;
 import org.jeecgframework.poi.excel.annotation.Excel;
 import org.jeecgframework.poi.excel.annotation.ExcelEntity;

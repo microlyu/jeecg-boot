@@ -1,7 +1,7 @@
 package org.jeecg.modules.iot.service;
 
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.DeviceSensor;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.Device;
+import org.jeecg.modules.iot.entity.DeviceSensor;
+import org.jeecg.modules.iot.entity.Device;
 import com.baomidou.mybatisplus.extension.service.IService;
 import java.io.Serializable;
 import java.util.Collection;

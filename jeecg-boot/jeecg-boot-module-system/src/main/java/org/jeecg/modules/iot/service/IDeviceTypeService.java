@@ -1,6 +1,6 @@
 package org.jeecg.modules.iot.service;
 
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.DeviceType;
+import org.jeecg.modules.iot.entity.DeviceType;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.jeecg.common.exception.JeecgBootException;
 

@@ -2,9 +2,9 @@ package org.jeecg.modules.iot.service.impl;
 
 import org.jeecg.common.exception.JeecgBootException;
 import org.jeecg.common.util.oConvertUtils;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.entity.DeviceType;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.mapper.DeviceTypeMapper;
-import org.jeecg.modules.demo.org.jeecg.modules.demo.org.jeecg.modules.iot.service.IDeviceTypeService;
+import org.jeecg.modules.iot.entity.DeviceType;
+import org.jeecg.modules.iot.mapper.DeviceTypeMapper;
+import org.jeecg.modules.iot.service.IDeviceTypeService;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
