@@ -171,11 +171,11 @@
           }
         ],
         url: {
-          list: "/org.jeecg.modules.iot/onboardPoint/list",
-          delete: "/org.jeecg.modules.iot/onboardPoint/delete",
-          deleteBatch: "/org.jeecg.modules.iot/onboardPoint/deleteBatch",
-          exportXlsUrl: "/org.jeecg.modules.iot/onboardPoint/exportXls",
-          importExcelUrl: "/org.jeecg.modules.iot/onboardPoint/importExcel",
+          list: "/iot/onboardPoint/list",
+          delete: "/iot/onboardPoint/delete",
+          deleteBatch: "/iot/onboardPoint/deleteBatch",
+          exportXlsUrl: "/iot/onboardPoint/exportXls",
+          importExcelUrl: "/iot/onboardPoint/importExcel",
         },
         dictOptions:{},
       }
