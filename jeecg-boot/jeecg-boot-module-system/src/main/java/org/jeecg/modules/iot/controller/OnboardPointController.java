@@ -44,7 +44,7 @@ import org.jeecg.common.aspect.annotation.AutoLog;
  */
 @Api(tags="接入点配置表")
 @RestController
-@RequestMapping("/org.jeecg.modules.demo.org.jeecg.modules.iot/onboardPoint")
+@RequestMapping("/iot/onboardPoint")
 @Slf4j
 public class OnboardPointController extends JeecgController<OnboardPoint, IOnboardPointService> {
 	@Autowired

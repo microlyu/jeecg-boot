@@ -43,7 +43,7 @@ import org.jeecg.common.aspect.annotation.AutoLog;
  */
 @Api(tags="设备类型")
 @RestController
-@RequestMapping("/org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType")
+@RequestMapping("/iot/deviceType")
 @Slf4j
 public class DeviceTypeController extends JeecgController<DeviceType, IDeviceTypeService>{
 	@Autowired

@@ -50,7 +50,7 @@ import org.jeecg.common.aspect.annotation.AutoLog;
  */
 @Api(tags="设备表")
 @RestController
-@RequestMapping("/org.jeecg.modules.demo.org.jeecg.modules.iot/device")
+@RequestMapping("/iot/device")
 @Slf4j
 public class DeviceController {
 	@Autowired
