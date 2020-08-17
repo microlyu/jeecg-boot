@@ -178,11 +178,11 @@
           }
         ],
         url: {
-          list: "/org.jeecg.modules.demo.org.jeecg.modules.iot/device/list",
-          delete: "/org.jeecg.modules.demo.org.jeecg.modules.iot/device/delete",
-          deleteBatch: "/org.jeecg.modules.demo.org.jeecg.modules.iot/device/deleteBatch",
-          exportXlsUrl: "/org.jeecg.modules.demo.org.jeecg.modules.iot/device/exportXls",
-          importExcelUrl: "org.jeecg.modules.demo.org.jeecg.modules.iot/device/importExcel",
+          list: "/org.jeecg.modules.iot/device/list",
+          delete: "/org.jeecg.modules.iot/device/delete",
+          deleteBatch: "/org.jeecg.modules.iot/device/deleteBatch",
+          exportXlsUrl: "/org.jeecg.modules.iot/device/exportXls",
+          importExcelUrl: "/org.jeecg.modules.iot/device/importExcel",
         },
         dictOptions:{},
       }

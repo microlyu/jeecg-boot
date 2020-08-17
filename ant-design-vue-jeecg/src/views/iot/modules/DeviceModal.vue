@@ -139,10 +139,10 @@
           ]
         },
         url: {
-          add: "/org.jeecg.modules.demo.org.jeecg.modules.iot/device/add",
-          edit: "/org.jeecg.modules.demo.org.jeecg.modules.iot/device/edit",
+          add: "/org.jeecg.modules.iot/device/add",
+          edit: "/org.jeecg.modules.iot/device/edit",
           deviceSensor: {
-            list: '/org.jeecg.modules.demo.org.jeecg.modules.iot/device/queryDeviceSensorByMainId'
+            list: '/org.jeecg.modules.iot/device/queryDeviceSensorByMainId'
           },
         }
       }

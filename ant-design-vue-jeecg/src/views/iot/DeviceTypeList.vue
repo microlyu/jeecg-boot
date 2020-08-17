@@ -121,12 +121,12 @@
           }
         ],
         url: {
-          list: "/org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType/rootList",
-          childList: "/org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType/childList",
-          delete: "/org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType/delete",
-          deleteBatch: "/org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType/deleteBatch",
-          exportXlsUrl: "/org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType/exportXls",
-          importExcelUrl: "org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType/importExcel",
+          list: "/org.jeecg.modules.iot/deviceType/rootList",
+          childList: "/org.jeecg.modules.iot/deviceType/childList",
+          delete: "/org.jeecg.modules.iot/deviceType/delete",
+          deleteBatch: "/org.jeecg.modules.iot/deviceType/deleteBatch",
+          exportXlsUrl: "/org.jeecg.modules.iot/deviceType/exportXls",
+          importExcelUrl: "/org.jeecg.modules.iot/deviceType/importExcel",
         },
         expandedRowKeys:[],
         hasChildrenField:"hasChild",

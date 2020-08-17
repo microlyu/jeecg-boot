@@ -88,8 +88,8 @@
           },
         },
         url: {
-          add: "/org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType/add",
-          edit: "/org.jeecg.modules.demo.org.jeecg.modules.iot/deviceType/edit",
+          add: "/org.jeecg.modules.iot/deviceType/add",
+          edit: "/org.jeecg.modules.iot/deviceType/edit",
         },
         expandedRowKeys:[],
         pidField:"pid"
