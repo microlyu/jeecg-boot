@@ -4,6 +4,14 @@ VOLUME /tmp
 ENV LANG en_US.UTF-8
 RUN echo "server {  \
                       listen       80; \
+                      # gzip config \
+                          gzip on; \
+                          gzip_min_length 1k;\
+                          gzip_comp_level 9;\
+                          gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;\
+                          gzip_vary on;\
+                          gzip_disable "MSIE [1-6]\."; \
+                      \
                       location ^~ /jeecg-boot { \
                       proxy_pass              http://jeecg-boot-system:8080/jeecg-boot/; \
                       proxy_set_header        Host jeecg-boot-system; \
