@@ -53,7 +53,7 @@
   import Vue from 'vue'
   import { getAction,putAction } from '@/api/manage'
   import { USER_INFO } from "@/store/mutation-types"
-  import store from './Login'
+  import store from './Login-old'
 
   export default {
     name: 'LoginSelectModal',

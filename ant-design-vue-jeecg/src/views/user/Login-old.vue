@@ -1,46 +1,97 @@
 <template>
   <div class="main">
     <a-form :form="form" class="user-layout-login" ref="formLogin" id="formLogin">
-
-      <a-form-item>
-        <a-input
-          size="large"
-          v-decorator="['username',validatorRules.username,{ validator: this.handleUsernameOrEmail }]"
-          type="text"
-          placeholder="请输入帐户名 / jeecg">
-          <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-        </a-input>
-      </a-form-item>
-
-      <a-form-item>
-        <a-input
-          v-decorator="['password',validatorRules.password]"
-          size="large"
-          type="password"
-          autocomplete="false"
-          placeholder="密码 / 123456">
-          <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-        </a-input>
-      </a-form-item>
-
-      <a-row :gutter="0">
-        <a-col :span="16">
+      <a-tabs
+        :activeKey="customActiveKey"
+        :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
+        @change="handleTabClick">
+        <a-tab-pane key="tab1" tab="账号密码登陆">
           <a-form-item>
             <a-input
-              v-decorator="['inputCode',validatorRules.inputCode]"
               size="large"
+              v-decorator="['username',validatorRules.username,{ validator: this.handleUsernameOrEmail }]"
               type="text"
-              @change="inputCodeChange"
-              placeholder="请输入验证码">
-              <a-icon slot="prefix" type="smile" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+              placeholder="请输入帐户名 / jeecg">
+              <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
           </a-form-item>
-        </a-col>
-        <a-col :span="8" style="text-align: right">
-          <img v-if="requestCodeSuccess" style="margin-top: 2px;" :src="randCodeImage" @click="handleChangeCheckCode"/>
-          <img v-else style="margin-top: 2px;" src="../../assets/checkcode.png" @click="handleChangeCheckCode"/>
-        </a-col>
-      </a-row>
+
+          <a-form-item>
+            <a-input
+              v-decorator="['password',validatorRules.password]"
+              size="large"
+              type="password"
+              autocomplete="false"
+              placeholder="密码 / 123456">
+              <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+            </a-input>
+          </a-form-item>
+
+          <a-row :gutter="0">
+            <a-col :span="16">
+              <a-form-item>
+                <a-input
+                  v-decorator="['inputCode',validatorRules.inputCode]"
+                  size="large"
+                  type="text"
+                  @change="inputCodeChange"
+                  placeholder="请输入验证码">
+                  <a-icon slot="prefix" type="smile" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                </a-input>
+              </a-form-item>
+            </a-col>
+            <a-col :span="8" style="text-align: right">
+              <img v-if="requestCodeSuccess" style="margin-top: 2px;" :src="randCodeImage" @click="handleChangeCheckCode"/>
+              <img v-else style="margin-top: 2px;" src="../../assets/checkcode.png" @click="handleChangeCheckCode"/>
+            </a-col>
+          </a-row>
+
+
+        </a-tab-pane>
+        <a-tab-pane key="tab2" tab="手机号登陆">
+          <a-form-item>
+            <a-input
+              v-decorator="['mobile',validatorRules.mobile]"
+              size="large"
+              type="text"
+              placeholder="手机号">
+              <a-icon slot="prefix" type="mobile" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+            </a-input>
+          </a-form-item>
+
+          <a-row :gutter="16">
+            <a-col class="gutter-row" :span="16">
+              <a-form-item>
+                <a-input
+                  v-decorator="['captcha',validatorRules.captcha]"
+                  size="large"
+                  type="text"
+                  placeholder="请输入验证码">
+                  <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                </a-input>
+              </a-form-item>
+            </a-col>
+            <a-col class="gutter-row" :span="8">
+              <a-button
+                class="getCaptcha"
+                tabindex="-1"
+                :disabled="state.smsSendBtn"
+                @click.stop.prevent="getCaptcha"
+                v-text="!state.smsSendBtn && '获取验证码' || (state.time+' s')"></a-button>
+            </a-col>
+          </a-row>
+        </a-tab-pane>
+      </a-tabs>
+
+      <a-form-item>
+        <a-checkbox v-decorator="['rememberMe', {initialValue: true, valuePropName: 'checked'}]" >自动登陆</a-checkbox>
+        <router-link :to="{ name: 'alteration'}" class="forge-password" style="float: right;">
+          忘记密码
+        </router-link>
+       <router-link :to="{ name: 'register'}" class="forge-password" style="float: right;margin-right: 10px" >
+          注册账户
+        </router-link>
+      </a-form-item>
 
       <a-form-item style="margin-top:24px">
         <a-button
@@ -53,6 +104,13 @@
           :disabled="loginBtn">确定
         </a-button>
       </a-form-item>
+
+      <div class="user-login-other">
+        <span>其他登陆方式</span>
+        <a @click="onThirdLogin('github')" title="github"><a-icon class="item-icon" type="github"></a-icon></a>
+        <a @click="onThirdLogin('wechat_enterprise')" title="企业微信"><a-icon class="item-icon" type="wechat"></a-icon></a>
+        <a @click="onThirdLogin('dingtalk')" title="钉钉"><a-icon class="item-icon" type="dingding"></a-icon></a>
+      </div>
     </a-form>
 
     <two-step-captcha
@@ -89,8 +147,8 @@
         loginBtn: false,
         // login type: 0 email, 1 username, 2 telephone
         loginType: 0,
-        requiredTwoStepCaptcha: false,
-        stepCaptchaVisible: false,
+        requiredTwoStepCaptcha: true,
+        stepCaptchaVisible: true,
         form: this.$form.createForm(this),
         encryptedString:{
           key:"",
