@@ -17,8 +17,8 @@
         :type="collapsed ? 'menu-unfold' : 'menu-fold'"
         @click="toggle"/>
 
-      <span v-if="device === 'desktop'">欢迎进入 Jeecg-Boot 企业级快速开发平台</span>
-      <span v-else>Jeecg-Boot</span>
+      <span v-if="device === 'desktop'">欢迎进入Sensa Tronic环境监控平台</span>
+      <span v-else>Sensa Tronics</span>
 
       <user-menu :theme="theme"/>
     </div>
