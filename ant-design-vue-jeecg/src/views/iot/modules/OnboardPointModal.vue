@@ -92,8 +92,8 @@
           },
         },
         url: {
-          add: "/org.jeecg.modules.iot/onboardPoint/add",
-          edit: "/org.jeecg.modules.iot/onboardPoint/edit",
+          add: "/iot/onboardPoint/add",
+          edit: "/iot/onboardPoint/edit",
         }
       }
     },
