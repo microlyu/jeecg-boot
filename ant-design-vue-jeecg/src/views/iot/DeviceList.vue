@@ -95,6 +95,8 @@
           <a @click="handleEdit(record)">编辑</a>
 
           <a-divider type="vertical" />
+          <a @click="showstatus(record.deviceSn)"><a-icon type="setting"/> 运行状态</a>
+          <a-divider type="vertical" />
           <a-dropdown>
             <a class="ant-dropdown-link">更多 <a-icon type="down" /></a>
             <a-menu slot="overlay">
@@ -111,6 +113,7 @@
     </div>
 
     <device-modal ref="modalForm" @ok="modalFormOk"></device-modal>
+    <device-status-modal ref="deviceStatusModal"></device-status-modal>
   </a-card>
 </template>
 
@@ -118,6 +121,7 @@
 
   import { JeecgListMixin } from '@/mixins/JeecgListMixin'
   import DeviceModal from './modules/DeviceModal'
+  import DeviceStatusModal from './modules/DeviceStatusModal'
   import JDictSelectTag from '@/components/dict/JDictSelectTag.vue'
   import {filterMultiDictText} from '@/components/dict/JDictSelectUtil'
   import '@/assets/less/TableExpand.less'
@@ -127,7 +131,8 @@
     mixins:[JeecgListMixin],
     components: {
       JDictSelectTag,
-      DeviceModal
+      DeviceModal,
+      DeviceStatusModal
     },
     data () {
       return {
@@ -194,6 +199,10 @@
     },
     methods: {
       initDictConfig(){
+      },
+
+      showstatus(deviceSn){
+        this.$refs.deviceStatusModal.showstatus(deviceSn);
       }
        
     }
