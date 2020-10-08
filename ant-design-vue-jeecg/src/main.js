@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import Storage from 'vue-ls'
 import router from './router'
-import store from './store/'
 
+import store from './store/'
 import { VueAxios } from "@/utils/request"
 
 import Antd from 'ant-design-vue'

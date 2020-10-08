@@ -18,60 +18,23 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * @Description: 接入点配置表
+ * @Description: 监控对象
  * @Author: jeecg-boot
- * @Date:   2020-07-24
+ * @Date:   2020-10-06
  * @Version: V1.0
  */
 @Data
-@TableName("iot_onboard_point")
+@TableName("iot_monitor_object")
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="iot_onboard_point对象", description="接入点配置表")
-public class OnboardPoint implements Serializable {
+@ApiModel(value="iot_monitor_object对象", description="监控对象")
+public class MonitorObject implements Serializable {
     private static final long serialVersionUID = 1L;
 
 	/**主键*/
-	@TableId(type = IdType.ID_WORKER_STR)
+	@TableId(type = IdType.ASSIGN_ID)
     @ApiModelProperty(value = "主键")
     private String id;
-	/**接入点名称*/
-	@Excel(name = "接入点名称", width = 15)
-    @ApiModelProperty(value = "接入点名称")
-    private String onboardName;
-	/**接入点协议*/
-	@Excel(name = "接入点协议", width = 15, dicCode = "protocol_type")
-	@Dict(dicCode = "protocol_type")
-    @ApiModelProperty(value = "接入点协议")
-    private String protocol;
-	/**访问地址*/
-	@Excel(name = "访问地址", width = 15)
-    @ApiModelProperty(value = "访问地址")
-    private String accessUrl;
-	/**主动拉取的采集间隔（秒）*/
-	@Excel(name = "主动拉取的采集间隔（秒）", width = 15)
-    @ApiModelProperty(value = "主动拉取的采集间隔（秒）")
-    private Integer observeInterval;
-	/**认证账户*/
-	@Excel(name = "认证账户", width = 15)
-    @ApiModelProperty(value = "认证账户")
-    private String authAccount;
-	/**认证密码*/
-	@Excel(name = "认证密码", width = 15)
-    @ApiModelProperty(value = "认证密码")
-    private String authPassword;
-	/**参数一*/
-	@Excel(name = "参数一", width = 15)
-    @ApiModelProperty(value = "参数一")
-    private String param1;
-	/**参数2*/
-	@Excel(name = "参数2", width = 15)
-    @ApiModelProperty(value = "参数2")
-    private String param2;
-	/**参数3*/
-	@Excel(name = "参数3", width = 15)
-    @ApiModelProperty(value = "参数3")
-    private String param3;
 	/**创建人*/
     @ApiModelProperty(value = "创建人")
     private String createBy;
@@ -89,6 +52,23 @@ public class OnboardPoint implements Serializable {
     @ApiModelProperty(value = "更新日期")
     private Date updateTime;
 	/**所属部门*/
+	@Dict(dictTable = "sys_depart", dicText = "depart_name", dicCode = "id")
     @ApiModelProperty(value = "所属部门")
     private String sysOrgCode;
+	/**名称*/
+	@Excel(name = "名称", width = 15)
+    @ApiModelProperty(value = "名称")
+    private String objectName;
+	/**LOGO*/
+	@Excel(name = "LOGO", width = 15)
+    @ApiModelProperty(value = "LOGO")
+    private String objectLogo;
+	/**状态*/
+	@Excel(name = "状态", width = 15)
+    @ApiModelProperty(value = "状态")
+    private String objectStatus;
+	/**备注*/
+	@Excel(name = "备注", width = 15)
+    @ApiModelProperty(value = "备注")
+    private String objectMemo;
 }

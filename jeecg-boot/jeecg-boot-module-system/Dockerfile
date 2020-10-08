@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java:8_server-jre_unlimited
+hFROM anapsix/alpine-java:8_server-jre_unlimited
 
 MAINTAINER jeecgos@163.com
 

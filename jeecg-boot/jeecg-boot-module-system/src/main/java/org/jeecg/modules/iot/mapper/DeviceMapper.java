@@ -7,9 +7,9 @@ import org.jeecg.modules.iot.entity.Device;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
- * @Description: 设备表
+ * @Description: 设备
  * @Author: jeecg-boot
- * @Date:   2020-07-24
+ * @Date:   2020-10-06
  * @Version: V1.0
  */
 public interface DeviceMapper extends BaseMapper<Device> {

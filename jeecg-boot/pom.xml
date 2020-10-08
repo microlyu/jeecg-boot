@@ -16,7 +16,7 @@
 	<modules>
 		<module>jeecg-boot-base-common</module>
 		<module>jeecg-boot-module-system</module>
-	</modules>
+    </modules>
 
 	<distributionManagement>
 	  	<repository>
@@ -334,6 +334,13 @@
 			<groupId>com.xkcoding.justauth</groupId>
 			<artifactId>justauth-spring-boot-starter</artifactId>
 			<version>1.3.2</version>
+		</dependency>
+
+		<!-- Prometheus -->
+		<dependency>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient</artifactId>
+			<version>0.9.0</version>
 		</dependency>
 
 	</dependencies>

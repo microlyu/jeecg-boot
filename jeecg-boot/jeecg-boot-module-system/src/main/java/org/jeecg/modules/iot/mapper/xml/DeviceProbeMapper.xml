@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.iot.mapper.DeviceProbeMapper">
+
+	<delete id="deleteByMainId" parameterType="java.lang.String">
+		DELETE 
+		FROM  iot_device_probe 
+		WHERE
+			 device_id = #{mainId} 	</delete>
+	
+	<select id="selectByMainId" parameterType="java.lang.String" resultType="org.jeecg.modules.iot.entity.DeviceProbe">
+		SELECT * 
+		FROM  iot_device_probe
+		WHERE
+			 device_id = #{mainId} 	</select>
+
+	<select id="selectByObjectId" parameterType="java.lang.String" resultType="org.jeecg.modules.iot.entity.DeviceProbe">
+		SELECT *
+		FROM  iot_device_probe
+		WHERE
+			 monitor_id = #{objectId} 	</select>
+</mapper>

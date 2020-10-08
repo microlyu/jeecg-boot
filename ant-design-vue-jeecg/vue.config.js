@@ -56,9 +56,11 @@ module.exports = {
   css: {
     loaderOptions: {
       less: {
+        // modifyVars: aliyunTheme,
         modifyVars: {
           /* less 变量覆盖，用于自定义 ant design 主题 */
-          'primary-color': '#1890FF',
+          // 'primary-color': '#1890FF',
+          'primary-color': '#E6E6FA',
           'link-color': '#1890FF',
           'border-radius-base': '4px',
         },

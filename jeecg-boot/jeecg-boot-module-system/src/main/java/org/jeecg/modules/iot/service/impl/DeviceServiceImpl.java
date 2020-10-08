@@ -1,8 +1,8 @@
 package org.jeecg.modules.iot.service.impl;
 
 import org.jeecg.modules.iot.entity.Device;
-import org.jeecg.modules.iot.entity.DeviceSensor;
-import org.jeecg.modules.iot.mapper.DeviceSensorMapper;
+import org.jeecg.modules.iot.entity.DeviceProbe;
+import org.jeecg.modules.iot.mapper.DeviceProbeMapper;
 import org.jeecg.modules.iot.mapper.DeviceMapper;
 import org.jeecg.modules.iot.service.IDeviceService;
 import org.springframework.stereotype.Service;
@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Collection;
 
 /**
- * @Description: 设备表
+ * @Description: 设备
  * @Author: jeecg-boot
- * @Date:   2020-07-24
+ * @Date:   2020-10-06
  * @Version: V1.0
  */
 @Service
@@ -25,35 +25,35 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, Device> impleme
 	@Autowired
 	private DeviceMapper deviceMapper;
 	@Autowired
-	private DeviceSensorMapper deviceSensorMapper;
+	private DeviceProbeMapper deviceProbeMapper;
 	
 	@Override
 	@Transactional
-	public void saveMain(Device device, List<DeviceSensor> deviceSensorList) {
+	public void saveMain(Device device, List<DeviceProbe> deviceProbeList) {
 		deviceMapper.insert(device);
-		if(deviceSensorList!=null && deviceSensorList.size()>0) {
-			for(DeviceSensor entity:deviceSensorList) {
+		if(deviceProbeList!=null && deviceProbeList.size()>0) {
+			for(DeviceProbe entity:deviceProbeList) {
 				//外键设置
 				entity.setDeviceId(device.getId());
-				deviceSensorMapper.insert(entity);
+				deviceProbeMapper.insert(entity);
 			}
 		}
 	}
 
 	@Override
 	@Transactional
-	public void updateMain(Device device,List<DeviceSensor> deviceSensorList) {
+	public void updateMain(Device device,List<DeviceProbe> deviceProbeList) {
 		deviceMapper.updateById(device);
 		
 		//1.先删除子表数据
-		deviceSensorMapper.deleteByMainId(device.getId());
+		deviceProbeMapper.deleteByMainId(device.getId());
 		
 		//2.子表数据重新插入
-		if(deviceSensorList!=null && deviceSensorList.size()>0) {
-			for(DeviceSensor entity:deviceSensorList) {
+		if(deviceProbeList!=null && deviceProbeList.size()>0) {
+			for(DeviceProbe entity:deviceProbeList) {
 				//外键设置
 				entity.setDeviceId(device.getId());
-				deviceSensorMapper.insert(entity);
+				deviceProbeMapper.insert(entity);
 			}
 		}
 	}
@@ -61,7 +61,7 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, Device> impleme
 	@Override
 	@Transactional
 	public void delMain(String id) {
-		deviceSensorMapper.deleteByMainId(id);
+		deviceProbeMapper.deleteByMainId(id);
 		deviceMapper.deleteById(id);
 	}
 
@@ -69,7 +69,7 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, Device> impleme
 	@Transactional
 	public void delBatchMain(Collection<? extends Serializable> idList) {
 		for(Serializable id:idList) {
-			deviceSensorMapper.deleteByMainId(id.toString());
+			deviceProbeMapper.deleteByMainId(id.toString());
 			deviceMapper.deleteById(id);
 		}
 	}

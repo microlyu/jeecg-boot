@@ -8,11 +8,11 @@
       </a-form>
     </div>
     <!-- 查询区域-END -->
-    
+
     <!-- 操作按钮区域 -->
     <div class="table-operator">
       <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
-      <a-button type="primary" icon="download" @click="handleExportXls('设备')">导出</a-button>
+      <a-button type="primary" icon="download" @click="handleExportXls('监控对象')">导出</a-button>
       <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
         <a-button type="primary" icon="import">导入</a-button>
       </a-upload>
@@ -34,15 +34,15 @@
       <a-table
         ref="table"
         size="middle"
+        :scroll="{x:true}"
         bordered
         rowKey="id"
-        class="j-table-force-nowrap"
-        :scroll="{x:true}"
         :columns="columns"
         :dataSource="dataSource"
         :pagination="ipagination"
         :loading="loading"
         :rowSelection="{selectedRowKeys: selectedRowKeys, onChange: onSelectChange}"
+        class="j-table-force-nowrap"
         @change="handleTableChange">
 
         <template slot="htmlSlot" slot-scope="text">
@@ -87,26 +87,26 @@
       </a-table>
     </div>
 
-    <device-modal ref="modalForm" @ok="modalFormOk"/>
+    <monitor-object-modal ref="modalForm" @ok="modalFormOk"></monitor-object-modal>
   </a-card>
 </template>
 
 <script>
 
-  import { JeecgListMixin } from '@/mixins/JeecgListMixin'
-  import DeviceModal from './modules/DeviceModal'
-  import {filterMultiDictText} from '@/components/dict/JDictSelectUtil'
   import '@/assets/less/TableExpand.less'
+  import { mixinDevice } from '@/utils/mixin'
+  import { JeecgListMixin } from '@/mixins/JeecgListMixin'
+  import MonitorObjectModal from './modules/MonitorObjectModal'
 
   export default {
-    name: "DeviceList",
-    mixins:[JeecgListMixin],
+    name: 'MonitorObjectList',
+    mixins:[JeecgListMixin, mixinDevice],
     components: {
-      DeviceModal
+      MonitorObjectModal
     },
     data () {
       return {
-        description: '设备管理页面',
+        description: '监控对象管理页面',
         // 表头
         columns: [
           {
@@ -125,60 +125,53 @@
             dataIndex: 'sysOrgCode_dictText'
           },
           {
-            title:'设备类型',
+            title:'名称',
             align:"center",
-            dataIndex: 'deviceType_dictText'
+            dataIndex: 'objectName'
           },
           {
-            title:'设备名称',
+            title:'LOGO',
             align:"center",
-            dataIndex: 'deviceName'
-          },
-          {
-            title:'设备地址',
-            align:"center",
-            dataIndex: 'deviceIp'
-          },
-          {
-            title:'采样频率',
-            align:"center",
-            dataIndex: 'collectInterval'
+            dataIndex: 'objectLogo',
+            scopedSlots: {customRender: 'imgSlot'}
           },
           {
             title:'状态',
             align:"center",
-            dataIndex: 'deviceStatus'
+            dataIndex: 'objectStatus',
+            customRender: (text) => (text ? filterMultiDictText(this.dictOptions['objectStatus'], text) : ''),
           },
           {
             title: '操作',
             dataIndex: 'action',
             align:"center",
             fixed:"right",
-            scopedSlots: { customRender: 'action' },
+            width:147,
+            scopedSlots: { customRender: 'action' }
           }
         ],
         url: {
-          list: "/iot/device/list",
-          delete: "/iot/device/delete",
-          deleteBatch: "/iot/device/deleteBatch",
-          exportXlsUrl: "/iot/device/exportXls",
-          importExcelUrl: "iot/device/importExcel",
+          list: "/iot/monitorObject/list",
+          delete: "/iot/monitorObject/delete",
+          deleteBatch: "/iot/monitorObject/deleteBatch",
+          exportXlsUrl: "/iot/monitorObject/exportXls",
+          importExcelUrl: "iot/monitorObject/importExcel",
           
         },
         dictOptions:{},
       }
     },
     created() {
+      this.$set(this.dictOptions, 'objectStatus', [{text:'是',value:'Y'},{text:'否',value:'N'}])
     },
     computed: {
       importExcelUrl: function(){
         return `${window._CONFIG['domianURL']}/${this.url.importExcelUrl}`;
-      }
+      },
     },
     methods: {
       initDictConfig(){
-      },
-       
+      }
     }
   }
 </script>
